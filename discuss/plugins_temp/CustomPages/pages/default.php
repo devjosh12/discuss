@@ -1,4 +1,0 @@
-<?php if (!defined('APPLICATION')) exit(); ?>
-<html>
-<object width="853" height="480"><param name="movie" value="http://www.youtube.com/apiplayer?video_id=0HziikcUT68&version=3&iv_load_policy=3&autoplay=1&showinfo=0&start=14&modestbranding=1&amp;hl=en_US&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/0HziikcUT68?version=3&amp&iv_load_policy=3&autoplay=1&showinfo=0&start=14&modestbranding=1;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" width="853" height="480" allowscriptaccess="always" allowfullscreen="true"></embed></object>
-</html>
