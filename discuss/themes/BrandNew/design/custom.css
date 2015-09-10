@@ -1,0 +1,507 @@
+/* Test Code */
+
+/** Code to make links appear like one **/
+div.Message a {
+text-decoration: underline;
+color:blue;
+}
+/** ENDS here **/
+
+/** Code to make comments into boxes and easy to navigate */
+li.Item.Comment {
+    border-radius: 20px 20px 20px 20px;
+    margin: 5px;
+}
+li.Item.Comment:hover {
+    background: none repeat scroll 0 0 #D0ECFF;
+}
+li.Item.Comment.Alt:hover {
+    background: none repeat scroll 0 0 #D0ECFF;
+}
+
+/**  Code ends here **/
+
+/** Code for Vote Application **/
+.StatBox {
+     background: repeat scroll 0% 0% orange;
+     color:white;
+}
+div.AnswerTabs li a, div.AnswerTabs li a:link, div.AnswerTabs li a:hover, div.AnswerTabs li a:active, div.AnswerTabs li a:visited {
+    background: none repeat scroll 0 0 #d45500;
+    color: white;
+    display: inline-block;
+    line-height: normal;
+}
+
+div.AnswerTabs {
+    margin-top: 0px;
+    padding: 0px;
+    font-size: 12px;
+    color: none;
+    text-align: right;
+    position: relative;
+    background: white;
+    border:none;
+    border-width:0px;
+}
+
+div.AnswerTabs li a, div.AnswerTabs li a:link, div.AnswerTabs li a:hover, div.AnswerTabs li a:active, div.AnswerTabs li a:visited {
+     background:white;
+     color: #154d6d;
+     display: inline-block;
+     line-height: normal;
+}
+
+div.AnswerTabs li.Active a {background:#154d6d;
+     color:white;}
+
+/**  Code ends here **/
+#Panel .GuestBox {border-color:#800000; color:#800000; text-align:center; font-family: Verdana, Geneva, sans-serif; background-color:#FFFFD3; border-style:solid; border-width: 5px 0px; padding:10px 5px; margine:20px; border-radius:0px;box-shadow:none;}
+ .GuestBox p { color:#800000; }
+ .GuestBox h4 { color:#800000; font-family:Lucida Sans; }
+/* Test Code  
+ .CommentInfo span {
+    background: none repeat scroll 0 0 #511551;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    font-family: Verdana;
+    }
+    
+*/
+#Content {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size:14px;
+ }
+
+.Title {font-size:12px;} //for thread title
+ 
+a.Button.ApplyButton, a.Button.SignInPopup { color: white; background:#800000;border: 0px;
+    border-radius: 0px;;
+    box-shadow: 0 ;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5;
+    padding: 10px;
+    text-shadow:none;
+}
+/*
+#Frame {
+     background-image: url(mainbg.jpg);
+}
+*/
+a.Button.ApplyButton:hover, a.Button.SignInPopup:hover {background-color:black;}
+/* END */
+body {
+    font-color:#333;
+    font-family: Verdana, Geneva, sans-serif;
+  //  font-size: 14px; 
+  //  line-height: 1.4em;
+}
+#Foot {
+    
+    background-image: url(header5.png);
+    border-style:ridge;
+    border-width:2px 0px 2px 0px;
+    border-color:orange;
+    //test code
+    float:bottom;
+}
+a { color:#0D4E6A;}
+a:hover { color: #036;}
+#Menu .Highlight {
+    background-color:black;
+    /* background-image: url("orange2.png"); */
+     -webkit-border-top-left-radius: 5px;
+     -webkit-border-top-right-radius: 5px;
+     -moz-border-radius-topleft: 5px;
+     -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+}
+
+/* #003366 #3399FF #FFCC99 #FF9966 #0B4B6B - flipkart */
+
+
+#Head  {
+    //background:#3A3E41;
+    background-image: url(headerMinus2.png);
+    background:#0D4E6A; //greenish
+    //may change to finalHeader.png for the w7
+    line-height: 1em;
+    box-shadow: 0px 0px 2px #3399ff;
+	-moz-box-shadow: 0px 0px 2px #3399ff;
+	-webkit-box-shadow: 0px 0px 2px #3399ff;     
+    border-style:ridge;
+    border-width:2px 0px 2px 0px;
+    border-color:orange;
+    width:100%;
+    margin-left: auto ;
+    margin-right: auto ;
+}
+}
+
+#Head h1 a span { 
+    font-size: 24px;
+    padding:10px;
+ }
+
+#Head #Form_Search {
+    color: #000;
+    font-size: 14px; //originally 11px
+}
+//deals with 4 menus
+#Menu {
+    margin-bottom: 3px;
+    padding-left: 5px;
+    padding-right:5px;
+    border-radius: 10px;
+	box-shadow: 0px 0px 2px #9a2727;
+	-moz-box-shadow: 0px 0px 2px #9a2727;
+	-webkit-box-shadow: 0px 0px 2px #9a2727;
+}
+
+body #Head h1 {
+    margin-bottom: 20px;
+}
+
+#Menu li {
+    margin: 0;
+}
+
+#Menu li a {
+    font-weight: normal;
+    font-family: Lucida Sans, Arial;
+    font-size:14px;
+}
+
+#Menu li a:hover {
+    text-decoration:underline;
+}
+
+#Menu li a:active {
+    color:#eeeeee;
+}
+.Activities .DataList li {
+    background: none;
+    border: 1px solid #ddd;
+}
+
+.Tabs .Breadcrumbs, .Tabs .Breadcrumbs a {
+    text-decoration: none;
+    color:#0D4E6A;
+}
+
+.Preview {
+	background: #fff;
+    border: 1px soild #ddd;
+    color: #111;
+}
+
+.MessageForm a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.Tabs, .Box, .MessageForm {
+    background-color:#0D4E6A;
+    border-radius: 11px;
+    color: #fff;
+	box-shadow: 0px 0px 2px #ff9966;
+	-moz-box-shadow: 0px 0px 2px #ff9966;
+	-webkit-box-shadow: 0px 0px 2px #ff9966;
+    padding: 10px;
+    border-style:solid;
+    border-width:2px;
+    border-color:orange;
+}
+
+.Tabs  a.Bookmark {
+    background-color: #fff;
+	box-shadow: 0px 0px 2px #fff;
+	-moz-box-shadow: 0px 0px 2px #fff;
+	-webkit-box-shadow: 0px 0px 2px #fff;
+}
+
+.Tabs a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.BoxCategories a {
+    font-family: Lucida Sans, Arial;
+    color: #fff;
+}
+.BoxBookmarks {
+    color: #111;
+}
+//This element contains All Discussions and My Topics
+.DiscussionsTabs {
+    border-bottom: none;
+    background:#0D4E6A;
+    //background-image: url(header2.jpg);
+}
+
+.Flyout {
+    background: #fff;
+    border: none;
+	-moz-box-shadow: 0px 0px 2px #aaa;
+	-webkit-box-shadow: 0px 0px 2px #aaa;
+}
+
+.Flyout li:hover {
+    background: none;
+}
+
+.Profile .OptionButton .Delete:hover {
+    background:none;
+}
+//All tabs properties are listed here
+.TabLink,
+.TabLink:link,
+.TabLink:hover,
+.TabLink:active,
+.TabLink:visited {
+    border: none;
+	box-shadow: 0px 0px 2px #eee;
+	-moz-box-shadow: 0px 0px 2px #eee;
+	-webkit-box-shadow: 0px 0px 2px #eee;
+    color: #fff;
+}
+.TabLink:hover {
+    background:#fff;
+	box-shadow: 0px 0px 2px #fff;
+	-moz-box-shadow: 0px 0px 2px #fff;
+	-webkit-box-shadow: 0px 0px 2px #fff;
+}
+
+
+/*separated TabLink from Active */
+.Active .TabLink {
+    
+   /* background-image: url(orange2.png); */
+    background: black;
+	box-shadow: 0px 0px 2px #fff;
+	-moz-box-shadow: 0px 0px 2px #fff;
+	-webkit-box-shadow: 0px 0px 2px #fff;
+    color: #ffffff;
+ }
+
+.Tabs li a span {
+    background: #0D4E6A;//#003366;
+    color: #fff;
+}
+
+.Active .TabLink span {
+    background: #111;
+}
+
+div.Popup h1,
+div.Popup h2 {
+    background: #0D4E6A;
+    border-bottom: none;
+}
+.Box dl dt {
+    color: #fff;
+}
+
+#Status {
+    background: #852121;
+    color: #fff;
+    box-shadow: 0px 0px 2px #852121;
+	-moz-box-shadow: 0px 0px 2px #852121;
+	-webkit-box-shadow: 0px 0px 2px #852121;
+    padding-bottom: 6px;
+}
+
+#Status a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.About a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.PanelInfo {
+    border-top: none;
+    moz-border-radius: 11px;
+    border-radius: 11px;
+    -webkit-border-radius: 11px;
+    
+}
+
+.PanelInfo li {
+    background: #fff;
+    
+    /*border-bottom: 1px solid #ddd;*/
+}
+
+.PanelInfo .Active {
+    border-bottom: 1px solid #9a2727;
+    background-color:black;
+  /*  background-image: url("orange2.png"); */
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.PanelInfo .Active a,
+.PanelInfo .Active a:hover {
+    color: #fff;
+}
+
+.PanelInfo li a {
+    color: #111;
+}
+
+.PanelInfo li a:hover {
+    color: #3399ff;
+}
+
+body.Profile .PanelInfo {
+    border-bottom: none;
+	box-shadow: 0px 0px 2px #fff;
+	-moz-box-shadow: 0px 0px 2px #fff;
+	-webkit-box-shadow: 0px 0px 2px #fff;
+   margin: 3px 0 3px 0;
+   border-bottom: 1px solid #eee;
+}
+
+.Profile .PanelInfo li {
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+a.BigButton {
+   color: #666;
+}
+
+a.Button,
+.Button {
+    color: #666;
+}
+
+.DataList .Item {
+    background:#fff;
+    border: 1px solid #eee;
+    border-top: none;
+    
+}
+.DataList .Item a {
+    color: #0D4E6A;
+}
+
+.DataList .Item a:hover {
+    color: #369;
+    text-decoration:underline;
+}
+
+.DataList li.Mine .Meta a.Category,
+.DataList .Meta a.Category {
+    border: 1px solid #eee;
+    background: none;
+}
+
+#DiscussionForm form {
+    background: #fff;
+    color: #111;
+    border: 1px solid #ddd;
+}
+
+#Form_User_Register label {
+    color: #fff;
+}
+
+#Form_User_Register a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+#themeCredit{
+    text-align: left;
+    font-size: 10px;
+    display: inline;
+}
+/*
+*****************END*****************************
+*/
+
+#Content li.Alt {background:#eee;}
+
+#Content li.Mine  {background:#FFFFE6;}
+#Content a.Category {
+    border: 1px;
+    color: white;
+    background: #D85300;
+    font-weight: bold;
+}
+
+#Panel ul.PanelCategories .Active {}
+    
+
+
+.CommentCount { 
+
+	font-weight:none;
+	border: 0px;
+    color: white;
+    background: #3C579D;;
+    font-weight: none;
+    padding:1px;
+}
+.LastCommentBy {
+    color: #036;
+}
+.LastCommentDate {
+    color: #036;
+    margin-left: -8px;
+}
+#Leave p a {
+    color: orange;
+}
+
+#Menu a span, #Menu li.Active a span, #Menu li.Highlight a:hover span {
+-moz-border-radius: 2px;
+-webkit-border-radius: 2px;
+border-radius: 2px;
+padding: 2px 5px;
+font-size: 9px;
+line-height: 12px;
+font-weight:bold;
+text-shadow: none;
+background: red;
+color: white;
+margin-left:-2px;
+vertical-align:super;
+}
+
+.Tabs li a span {
+background: red;
+color: white;
+}
+
+.NumberedPager a.Highlight {
+    padding: 0 4px;
+    background:orange;
+    color:white;
+}
+
+.BoxCategories h4 a:hover {
+   text-decoration:underline;
+   font-family: Lucida Sans,Arial;
+}
+
+/*
+*****************END*****************************
+.Box h4 {
+font-size: 110%;
+color: white;
+font-weight: bold;
+font-family: Lucida Sans,Arial;
+
+}
+
+.Box h4 {
+    color: #000;}
+*/

@@ -1,0 +1,4 @@
+[15-Jul-2012 02:33:35 UTC] PHP Fatal error:  Using $this when not in object context in /home/sinlix/public_html/geek.lk/themes/Vanlix/views/default.master.php on line 52
+[15-Jul-2012 02:33:41 UTC] PHP Fatal error:  Using $this when not in object context in /home/sinlix/public_html/geek.lk/themes/Vanlix/views/default.master.php on line 52
+[11-Aug-2012 17:48:21 UTC] PHP Fatal error:  Using $this when not in object context in /home/sinlix/public_html/geek.lk/themes/Vanlix/views/default.master.php on line 52
+[12-Aug-2012 06:31:32 UTC] PHP Fatal error:  Using $this when not in object context in /home/sinlix/public_html/geek.lk/themes/Vanlix/views/default.master.php on line 52

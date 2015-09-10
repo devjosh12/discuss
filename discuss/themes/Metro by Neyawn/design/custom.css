@@ -1,0 +1,30 @@
+/** Code to make comments into boxes and easy to navigate */
+li.Item.Comment {
+    border-radius: 20px 20px 20px 20px;
+    margin: 5px;
+}
+li.Item.Comment:hover {
+    background: none repeat scroll 0 0 #D0ECFF;
+}
+li.Item.Comment.Alt:hover {
+    background: none repeat scroll 0 0 #D0ECFF;
+}
+
+/**  Code ends here **/
+/** Menu Items Font **/
+#Menu li a {
+    font-weight: normal;
+    font-family: Lucida Sans, Arial;
+    font-size:14px;
+}
+/** Code ends here **/
+/** Code for the Categories **/
+.Box {
+background-color:#1460CD;
+}
+
+.BoxCategories a {
+    font-family: Lucida Sans, Arial;
+    color: #fff;
+}
+/** Code ends here **/

@@ -1,0 +1,70 @@
+ul.DataList.Discussions li.Item {
+    
+    margin: 1px 1px 1px 1px;
+    border-style:dotted;
+    border-bottom-width: 1px;
+    border-color:green;
+    
+    
+}
+
+ul.DataList.Discussions li.Item.Mine {
+  background-color:#FCFBE3;
+}
+
+li.Item.Comment.Mine {
+  background-color:#FCFBE3;
+}
+
+/** New Comments / Thread **/
+ul.DataList.Discussions li.Item.New {
+  background-color:#E2F7CE;
+}
+
+li.Item.Comment.New {
+  background-color:#E2F7CE;
+}
+
+
+li.Item.Comment {
+    border-top: 1px solid orange;
+    border-style:dotted;
+}
+
+li.Item.Comment:hover {
+    background: none repeat scroll 0 0 #D0ECFF;
+}
+li.Item.Comment.Alt:hover {
+    background: none repeat scroll 0 0 #D0ECFF;
+}
+#Content {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size:100%;
+ }
+
+/**************** New Changes ********************/
+ a.Category {
+    border: 1px;
+    color: white;
+    background: #D85300;
+    font-weight: bold;
+}
+
+.CommentCount { 
+
+	font-weight:none;
+	border: 0px;
+    color: white;
+    background: #3C579D;;
+    font-weight: none;
+    padding:1px;
+}
+
+#Content {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size:14px;
+ }
+.LastCommentDate {
+    color: #036;
+    margin-left: -8px;
+}

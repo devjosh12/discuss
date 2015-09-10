@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow: /upsc
+Disallow: /upsc_TEMP
+Disallow: /upsc23234
+
+User-agent: Mediapartners-Google
+Disallow:

@@ -1,0 +1,67 @@
+// Styles for the QnA plugin
+// -------------------------------------------------//
+
+.Tag.QnA-Accepted,
+.Tag.QnA-Rejected {
+	.label();
+	padding: 1px 4px 2px !important;
+	span {
+		padding: 0 !important;
+		}
+	}
+
+.Tag.QnA-Accepted,
+.Tag.QnA-Rejected {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	background: none;
+	.hide-text();
+	&:after {
+		font-family: FontAwesome;
+		font-weight: normal;
+		font-size: 40px;
+		}
+	}
+
+.Tag.QnA-Accepted:after {
+	color: @successText;
+	content: "\f058";
+	}
+
+.Tag.QnA-Rejected:after {
+	color: @errorText;
+	content: "\f057";
+	}	
+
+.QnA-Tag-Question {
+	.label();
+	background-color: @orange;
+	}
+
+.QnA-Tag-Accepted {
+	.label();
+	background-color: @green;
+	}
+
+.QnA-Tag-Answered {
+	.label();
+	background-color: @successText;
+	}
+
+#QnA_Question {
+	.btn-warning();
+	}
+
+#QnA_Discussion {
+	.btn-success();
+	}
+
+li.Active a {
+	&#QnA_Discussion {
+		background: @btnSuccessBackgroundHighlight;
+		}
+	&#QnA_Question {
+		background: @btnWarningBackgroundHighlight;
+		}
+	}

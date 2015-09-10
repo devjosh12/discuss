@@ -1,0 +1,44 @@
+a.Button,.Button {background: #D13131;}
+.menuwrapper {background: #D13131;}
+#Menu ul {
+   background: #D13131;
+}
+a.BigButton:hover, #Form_SaveDraft:hover, #Form_Preview:hover {
+   border: 2px solid #D13131;
+   background: #D13131;
+}
+a.BigButton:active, #Form_SaveDraft:active, #Form_Preview:active {
+background: #D13131;
+color: rgb(223, 223, 223);
+border: 2px solid #D13131;
+}
+.Button:hover, .Tablink:hover {
+background: #CF0000;
+}
+.Button:active, .Tablink:active {
+background: #960303;
+}
+.TabLink:hover {
+   border: 2px solid #D13131;
+   background: #D13131;
+}
+.Active .TabLink {
+   border: 2px solid #D13131;
+   background: #D13131;
+}
+.Count {
+   background-color: #D13131;
+}
+.Tabs li a span {
+    background-color: #D13131;
+}
+div.Popup h1,
+div.Popup h2 {
+	background: #D13131;
+}
+.DataList li.Mine .Meta a.Category {
+    background: none repeat scroll 0 0 #D13131;
+}
+#Head a {
+color: #D13131;
+}

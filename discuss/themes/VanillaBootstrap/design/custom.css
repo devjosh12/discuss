@@ -1,0 +1,20 @@
+/** Code for Alternating Colors **/
+ul.DataList.Discussions li.Item.Alt {
+  background-color:#eee;
+}
+
+.DataList.MessageList .Item .Message .Alt { 
+  background-color:#eee;
+}
+/** Code Ends **/
+/** Code to make comments into boxes and easy to navigate */
+li.Item.Comment {
+    border-radius: 20px 20px 20px 20px;
+    margin: 10px;
+}
+li.Item.Comment:hover {
+    background: none repeat scroll 0 0 #ddd; //#D0ECFF;
+}
+li.Item.Comment.Alt:hover {
+    background: none repeat scroll 0 0 #ddd; //#D0ECFF;
+}

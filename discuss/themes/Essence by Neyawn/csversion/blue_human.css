@@ -1,0 +1,46 @@
+/* all earlier #3995e9 have been changed to #016e97 by neyawn to get a draker theme; */
+
+a.Button,.Button {background: #016e97;}
+.menuwrapper {background: #016e97;}
+#Menu ul {
+   background: #005271;
+}
+a.BigButton:hover, #Form_SaveDraft:hover, #Form_Preview:hover {
+   border: 2px solid #016e97;
+   background: #016e97;
+}
+a.BigButton:active, #Form_SaveDraft:active, #Form_Preview:active {
+background: #016e97;
+// color: rgb(223, 223, 223);
+border: 2px solid #016e97;
+}
+.Button:hover, .Tablink:hover {
+background: #3B84E2;
+}
+.Button:active, .Tablink:active {
+background: #3679CF;
+}
+.TabLink:hover {
+   border: 2px solid #016e97;
+   background: #016e97;
+}
+.Active .TabLink {
+   border: 2px solid #016e97;
+   background: #016e97;
+}
+.Count {
+   background-color: #0a2949;
+}
+.Tabs li a span {
+    background-color: #0a2949;
+}
+div.Popup h1,
+div.Popup h2 {
+	background: #0a2949;
+}
+.DataList li.Mine .Meta a.Category {
+    background: none repeat scroll 0 0 #0a2949;
+}
+#Head a {
+color: #0a2949;
+}
