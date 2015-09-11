@@ -11,6 +11,8 @@
 /discuss/applications/vanillaforumscom
 /discuss/applications/vfcom
 /discuss/applications/vforg
+/discuss/plugins/Consolidate/*
+/discuss/themes/VanillaBootstrap0.9/*
 */.kpf
 */.DS_Store*
 */Thumbs.db
