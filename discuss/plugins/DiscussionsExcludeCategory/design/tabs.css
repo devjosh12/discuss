@@ -1,3 +1,7 @@
 .CategoryExcluded {
     margin: 15px 0;
 }
+
+.CategoryExcluded ul.Tabs {
+    padding: 0;
+}
