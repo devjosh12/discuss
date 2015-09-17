@@ -7,7 +7,7 @@ $PluginInfo['DiscussionsExcludeCategory'] = array(
     'RequiredApplications' => array(
         'Vanilla' => '2.1'
     ) ,
-    'Version' => '0.1b',
+    'Version' => '0.2b',
     'Author' => "Paul Thomas",
     'AuthorEmail' => 'dt01pqt_pt@yahoo.com'
 );
