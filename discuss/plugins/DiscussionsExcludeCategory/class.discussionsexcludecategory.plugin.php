@@ -71,12 +71,11 @@ class DiscussionsExcludeCategory extends Gdn_Plugin {
     }
     
     protected function addTabs($sender) {
-        
+        $sender->addCssFile('tabs.css','plugins/DiscussionsExcludeCategory');
         $sender->addModule('CategoryExcludedModule', 'Content');
     }
     
     public function discussionsController_render_before($sender) {
-        $sender->addCssFile('tabs.css','plugins/DiscussionsExcludeCategory');
         $this->addTabs($sender);
     }
     
