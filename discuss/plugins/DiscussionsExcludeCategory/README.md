@@ -1,7 +1,7 @@
 # Discussions Exclude Category #
 
 ### About ###
-Exclude catergories from discussions list, and add a link to the discussions filter menu.
+Exclude categories from discussions list, and add a link to the discussions filter menu.
 
 ### Sponsor ###
 Special thanks to forumias.com for making this happen.

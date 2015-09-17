@@ -32,7 +32,7 @@ class CategoryExcludedModule extends Gdn_Module {
         
         if (!empty($this->filterCats)) {
    ?>
-<div class="Box CategoryExcluded">
+<div class="CategoryExcluded">
     <ul class="Tabs CategoryExcludedTabs">
        <?php
             if (c('Plugins.DiscussionsExcludeCategory.DefaultTab', true)) {

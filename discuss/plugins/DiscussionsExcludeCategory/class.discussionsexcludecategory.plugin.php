@@ -2,7 +2,7 @@
 if (!defined('APPLICATION')) exit();
 $PluginInfo['DiscussionsExcludeCategory'] = array(
     'Name' => 'Discussions Exclude Category',
-    'Description' => 'Exclude catergories from discussions list, and add a link to the discussions filter menu.',
+    'Description' => 'Exclude categories from discussions list, and add a link to the discussions filter menu.',
     'SettingsPermission' => 'Garden.Settings.Manage',
     'RequiredApplications' => array(
         'Vanilla' => '2.1'
@@ -70,12 +70,18 @@ class DiscussionsExcludeCategory extends Gdn_Plugin {
         }
     }
     
-    public function discussionsController_render_before($sender) {
+    protected function addTabs($sender) {
+        
         $sender->addModule('CategoryExcludedModule', 'Content');
     }
     
+    public function discussionsController_render_before($sender) {
+        $sender->addCssFile('tabs.css','plugins/DiscussionsExcludeCategory');
+        $this->addTabs($sender);
+    }
+    
     public function categoriesController_render_before($sender) {
-        $sender->addModule('CategoryExcludedModule', 'Content');
+         $this->addTabs($sender);
     }
     
     public function setup() {
