@@ -11,12 +11,12 @@ Contact Vanilla Forums Inc. at support [at] vanillaforums [dot] com
 // Define the plugin:
 $PluginInfo['Voting'] = array(
    'Name' => 'Voting',
-   'Description' => 'Allows users to vote for comments and discussions. Administrators get unlimited votes.',
-   'Version' => '1.2',
+   'Description' => 'Allows users to vote on comments and discussions.',
+   'Version' => '1.1.1b',
    'Author' => "Mark O'Sullivan",
    'AuthorEmail' => 'mark@vanillaforums.com',
    'AuthorUrl' => 'http://markosullivan.ca',
-   'RequiredApplications' => array('Vanilla' => '2.1'),
+   'RequiredApplications' => array('Vanilla' => '2.0.17'),
    'SettingsUrl' => '/settings/voting',
    'SettingsPermission' => 'Garden.Settings.Manage'
 );
@@ -38,7 +38,7 @@ class VotingPlugin extends Gdn_Plugin {
 			'Plugins.Voting.ModThreshold2' => array('Type' => 'int', 'Control' => 'TextBox', 'Default' => -20, 'Description' => 'The vote that will remove a post to the moderation queue.')
 		));
 
-     $Sender->AddSideMenu('settings/voting');
+     $Sender->AddSideMenu('dashboard/settings/voting');
      $Sender->SetData('Title', T('Vote Settings'));
      $Sender->ConfigurationModule = $Conf;
      $Conf->RenderAll();
@@ -47,49 +47,55 @@ class VotingPlugin extends Gdn_Plugin {
       $Sender->Permission('Garden.Settings.Manage');
       if (Gdn::Session()->ValidateTransientKey(GetValue(0, $Sender->RequestArgs)))
          SaveToConfig('Plugins.Voting.Enabled', C('Plugins.Voting.Enabled') ? FALSE : TRUE);
-
+         
       Redirect('settings/voting');
    }
 
-    /**
-     * Add JS & CSS to the page.
-     */
-    public function AddJsCss($Sender) {
-        $Sender->AddCSSFile('voting.css', 'plugins/Voting');
-        $Sender->AddJSFile('voting.js', 'plugins/Voting');
-    }
-    public function DiscussionsController_Render_Before($Sender) {
-        $this->AddJsCss($Sender);
-    }
-    public function CategoriesController_Render_Before($Sender) {
-        $this->AddJsCss($Sender);
-    }
+	/**
+	 * Add JS & CSS to the page.
+	 */
+   public function AddJsCss($Sender) {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
+		
+      $Sender->AddCSSFile('voting.css', 'plugins/Voting');
+		$Sender->AddJSFile('plugins/Voting/voting.js');
+   }
+	public function DiscussionsController_Render_Before($Sender) {
+		$this->AddJsCss($Sender);
+	}
+   public function CategoriesController_Render_Before($Sender) {
+      $this->AddJsCss($Sender);
+   }
 
 	/**
 	 * Add the "Stats" buttons to the discussion list.
 	 */
 	public function Base_BeforeDiscussionContent_Handler($Sender) {
-	    $Session = Gdn::Session();
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
+
+		$Session = Gdn::Session();
 		$Discussion = GetValue('Discussion', $Sender->EventArguments);
 		// Answers
 		$Css = 'StatBox AnswersBox';
 		if ($Discussion->CountComments > 1)
 			$Css .= ' HasAnswersBox';
-
+			
 		$CountVotes = 0;
 		if (is_numeric($Discussion->Score)) // && $Discussion->Score > 0)
 			$CountVotes = $Discussion->Score;
-
+			
 		if (!is_numeric($Discussion->CountBookmarks))
 			$Discussion->CountBookmarks = 0;
-
+			
 		echo Wrap(
 			// Anchor(
-			Wrap(T('Comments')) . Gdn_Format::BigNumber($Discussion->CountComments)
+			Wrap(T('Comments')) . Gdn_Format::BigNumber($Discussion->CountComments - 1)
 			// ,'/discussion/'.$Discussion->DiscussionID.'/'.Gdn_Format::Url($Discussion->Name).($Discussion->CountCommentWatch > 0 ? '/#Item_'.$Discussion->CountCommentWatch : '')
 			// )
 			, 'div', array('class' => $Css));
-
+		
 		// Views
 		echo Wrap(
 			// Anchor(
@@ -97,7 +103,10 @@ class VotingPlugin extends Gdn_Plugin {
 			// , '/discussion/'.$Discussion->DiscussionID.'/'.Gdn_Format::Url($Discussion->Name).($Discussion->CountCommentWatch > 0 ? '/#Item_'.$Discussion->CountCommentWatch : '')
 			// )
 			, 'div', array('class' => 'StatBox ViewsBox'));
-
+	
+		
+		/** @Neyawn Commented to remove follows **/
+		/**
 		// Follows
 		$Title = T($Discussion->Bookmarked == '1' ? 'Unbookmark' : 'Bookmark');
 		if ($Session->IsValid()) {
@@ -110,7 +119,10 @@ class VotingPlugin extends Gdn_Plugin {
 		} else {
 			echo Wrap(Wrap(T('Follows')) . $Discussion->CountBookmarks, 'div', array('class' => 'StatBox FollowsBox'));
 		}
-
+		**/
+	        
+	        /** @Neyawn Code will for timebeing diable votes **/
+	       /**
 		// Votes
 		if ($Session->IsValid()) {
 			echo Wrap(Anchor(
@@ -121,14 +133,17 @@ class VotingPlugin extends Gdn_Plugin {
 			), 'div', array('class' => 'StatBox VotesBox'));
 		} else {
 			echo Wrap(Wrap(T('Votes')) . $CountVotes, 'div', array('class' => 'StatBox VotesBox'));
-		}
+		} Ends here **/
 	}
+	
 
    /**
 	 * Sort the comments by popularity if necessary
     * @param CommentModel $CommentModel
 	 */
    public function CommentModel_AfterConstruct_Handler($CommentModel) {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
 
       $Sort = self::CommentSort();
 
@@ -145,10 +160,12 @@ class VotingPlugin extends Gdn_Plugin {
 
    protected static $_CommentSort;
    public static function CommentSort() {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
 
       if (self::$_CommentSort)
          return self::$_CommentSort;
-
+      
       $Sort = GetIncomingValue('Sort', '');
       if (Gdn::Session()->IsValid()) {
          if ($Sort == '') {
@@ -166,75 +183,76 @@ class VotingPlugin extends Gdn_Plugin {
       return $Sort;
    }
 
-
-    /**
-     * Inserts the voting box after a comment has been added
-     */
-    public function DiscussionController_AfterDiscussionMeta_Handler($Sender) {
-        $this->DiscussionController_AfterCommentMeta_Handler($Sender);
-    }
-
-
 	/**
 	 * Insert sorting tabs after first comment.
 	 */
 	public function DiscussionController_BeforeCommentDisplay_Handler($Sender) {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
 
-		$AnswerCount = $Sender->Discussion->CountComments;
+		$AnswerCount = $Sender->Discussion->CountComments - 1;
 		$Type = GetValue('Type', $Sender->EventArguments, 'Comment');
-		if ($Type == 'Comment' && !GetValue('VoteHeaderWritten', $Sender) && $Sender->Offset==0) {
+		if ($Type == 'Comment' && !GetValue('VoteHeaderWritten', $Sender)) { //$Type != 'Comment' && $AnswerCount > 0) {
 		?>
-		<li class="Item">
-			<div class="VotingSort">
+		<li>
+			<div class="Tabs DiscussionTabs AnswerTabs">
 			<?php
 			echo
 				Wrap($AnswerCount.' '.Plural($AnswerCount, 'Comment', 'Comments'), 'strong');
-				echo ' sorted by '
-               .Anchor('Votes', Url(DiscussionUrl($Sender->Discussion).'?Sort=popular', TRUE), '', array('rel' => 'nofollow', 'class' => self::CommentSort() == 'popular' ? 'Active' : ''))
-               .' '
-               .Anchor('Date Added', Url(DiscussionUrl($Sender->Discussion).'?Sort=date', TRUE), '', array('rel' => 'nofollow', 'class' => self::CommentSort() == 'date' ? 'Active' : ''));
+				echo ' sorted by 
+				<ul>
+					<li'.(self::CommentSort() == 'popular' ? ' class="Active"' : '').'>'.Anchor('Votes', Url('?Sort=popular', TRUE), '', array('rel' => 'nofollow')).'</li>
+					<li'.(self::CommentSort() == 'date' ? ' class="Active"' : '').'>'.Anchor('Date Added', Url('?Sort=date', TRUE), '', array('rel' => 'nofollow')).'</li>
+				</ul>';
 			?>
 			</div>
 		</li>
 		<?php
       $Sender->VoteHeaderWritten = TRUE;
-		}
+		}		
 	}
 
-	public function DiscussionController_AfterCommentMeta_Handler($Sender) {
-      $Session = Gdn::Session();
-      $Object = GetValue('Object', $Sender->EventArguments);
-      $VoteType = $Sender->EventArguments['Type'] == 'Discussion' ? 'votediscussion' : 'votecomment';
-      $ID = $Sender->EventArguments['Type'] == 'Discussion' ? $Object->DiscussionID : $Object->CommentID;
-      $CssClass = '';
-      $VoteUpUrl = '/discussion/'.$VoteType.'/'.$ID.'/voteup/'.$Session->TransientKey().'/';
-      $VoteDownUrl = '/discussion/'.$VoteType.'/'.$ID.'/votedown/'.$Session->TransientKey().'/';
-      if (!$Session->IsValid()) {
-         $VoteUpUrl = Gdn::Authenticator()->SignInUrl($Sender->SelfUrl);
-         $VoteDownUrl = $VoteUpUrl;
-         $CssClass = ' SignInPopup';
-      }
+	public function DiscussionController_BeforeCommentMeta_Handler($Sender) {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
 
-      echo '<span class="Voter">';
+		echo '<span class="Votes">';
+			$Session = Gdn::Session();
+			$Object = GetValue('Object', $Sender->EventArguments);
+			$VoteType = $Sender->EventArguments['Type'] == 'Discussion' ? 'votediscussion' : 'votecomment';
+			$ID = $Sender->EventArguments['Type'] == 'Discussion' ? $Object->DiscussionID : $Object->CommentID;
+			$CssClass = '';
+			$VoteUpUrl = '/discussion/'.$VoteType.'/'.$ID.'/voteup/'.$Session->TransientKey().'/';
+			$VoteDownUrl = '/discussion/'.$VoteType.'/'.$ID.'/votedown/'.$Session->TransientKey().'/';
+			if (!$Session->IsValid()) {
+				$VoteUpUrl = Gdn::Authenticator()->SignInUrl($Sender->SelfUrl);
+				$VoteDownUrl = $VoteUpUrl;
+				$CssClass = ' SignInPopup';
+			}
 			echo Anchor(Wrap(Wrap('Vote Up', 'i'), 'i', array('class' => 'ArrowSprite SpriteUp', 'rel' => 'nofollow')), $VoteUpUrl, 'VoteUp'.$CssClass);
 			echo Wrap(StringIsNullOrEmpty($Object->Score) ? '0' : Gdn_Format::BigNumber($Object->Score));
 			echo Anchor(Wrap(Wrap('Vote Down', 'i'), 'i', array('class' => 'ArrowSprite SpriteDown', 'rel' => 'nofollow')), $VoteDownUrl, 'VoteDown'.$CssClass);
 		echo '</span>';
- }
+	}
 
+   /**
+	 * Add the vote.js file to discussions page, and handle sorting of answers.
+	 */
+   public function DiscussionController_Render_Before($Sender) {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
 
-    /**
-     * Add the vote.js file to discussions page, and handle sorting of answers.
-     */
-    public function DiscussionController_Render_Before($Sender) {
-        $this->AddJsCss($Sender);
-    }
-
-
+      $this->AddJsCss($Sender);
+   }
+   
+   
    /**
     * Increment/decrement comment scores
     */
    public function DiscussionController_VoteComment_Create($Sender) {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
+
       $CommentID = GetValue(0, $Sender->RequestArgs, 0);
       $VoteType = GetValue(1, $Sender->RequestArgs);
       $TransientKey = GetValue(2, $Sender->RequestArgs);
@@ -249,20 +267,16 @@ class VotingPlugin extends Gdn_Plugin {
          // Allow admins to vote unlimited.
          $AllowVote = $Session->CheckPermission('Garden.Moderation.Manage');
          // Only allow users to vote up or down by 1.
-         if (!$AllowVote && ($FinalVote > -2 && $FinalVote < 2))
-            $AllowVote = true;
-
-         if ($AllowVote){
+         if (!$AllowVote)
+            $AllowVote = $FinalVote > -2 && $FinalVote < 2;
+         
+         if ($AllowVote)
             $Total = $CommentModel->SetUserScore($CommentID, $Session->UserID, $FinalVote);
-         }else {
-            $FinalFinalVote = $OriginalScore + $OldUserVote;
-            $Total = $CommentModel->SetUserScore($CommentID, $Session->UserID, $FinalFinalVote);
-         }
-
+         
          // Move the comment into or out of moderation.
          if (class_exists('LogModel')) {
             $Moderate = FALSE;
-
+            
             if ($Total <= C('Plugins.Voting.ModThreshold1', -10)) {
                $LogOptions = array('GroupBy' => array('RecordID'));
                // Get the comment row.
@@ -287,7 +301,7 @@ class VotingPlugin extends Gdn_Plugin {
             if ($Total <= C('Plugins.Voting.ModThreshold2', -20)) {
                // Remove the comment.
                $CommentModel->Delete($CommentID, array('Log' => 'Moderate'));
-
+               
                $Sender->InformMessage(sprintf(T('The %s has been removed for moderation.'), T('comment')));
             } elseif ($Moderate) {
                $Sender->InformMessage(sprintf(T('The %s has been flagged for moderation.'), T('comment')));
@@ -304,6 +318,9 @@ class VotingPlugin extends Gdn_Plugin {
     * Increment/decrement discussion scores
     */
    public function DiscussionController_VoteDiscussion_Create($Sender) {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
+
       $DiscussionID = GetValue(0, $Sender->RequestArgs, 0);
       $TransientKey = GetValue(1, $Sender->RequestArgs);
       $VoteType = FALSE;
@@ -324,14 +341,14 @@ class VotingPlugin extends Gdn_Plugin {
             $NewUserVote = -1;
          else
             $NewUserVote = $OldUserVote == 1 ? -1 : 1;
-
+         
          $FinalVote = intval($OldUserVote) + intval($NewUserVote);
          // Allow admins to vote unlimited.
          $AllowVote = $Session->CheckPermission('Garden.Moderation.Manage');
          // Only allow users to vote up or down by 1.
          if (!$AllowVote)
             $AllowVote = $FinalVote > -2 && $FinalVote < 2;
-
+         
          if ($AllowVote) {
             $Total = $DiscussionModel->SetUserScore($DiscussionID, $Session->UserID, $FinalVote);
          } else {
@@ -339,11 +356,11 @@ class VotingPlugin extends Gdn_Plugin {
 				$Total = GetValue('Score', $Discussion, 0);
 				$FinalVote = $OldUserVote;
 			}
-
+         
          // Move the comment into or out of moderation.
          if (class_exists('LogModel')) {
             $Moderate = FALSE;
-
+            
             if ($Total <= C('Plugins.Voting.ModThreshold1', -10)) {
                $LogOptions = array('GroupBy' => array('RecordID'));
                // Get the comment row.
@@ -371,7 +388,7 @@ class VotingPlugin extends Gdn_Plugin {
             if ($Total <= C('Plugins.Voting.ModThreshold2', -20)) {
                // Remove the comment.
                $DiscussionModel->Delete($DiscussionID, array('Log' => 'Moderate'));
-
+               
                $Sender->InformMessage(sprintf(T('The %s has been removed for moderation.'), T('discussion')));
             } elseif ($Moderate) {
                $Sender->InformMessage(sprintf(T('The %s has been flagged for moderation.'), T('discussion')));
@@ -387,60 +404,56 @@ class VotingPlugin extends Gdn_Plugin {
    /**
     * Grab the score field whenever the discussions are queried.
     */
-   public function DiscussionModel_AfterDiscussionSummaryQuery_Handler($Sender) {
+   public function DiscussionModel_AfterDiscussionSummaryQuery_Handler(&$Sender) {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
+
       $Sender->SQL->Select('d.Score');
    }
-
-   /**
-    * Add the "Popular" filter
-    */
-   public function DiscussionsController_BeforeDiscussionFilters_Handler($Sender) {
-		echo '<li class="PopularDiscussions '.($Sender->RequestMethod == 'popular' ? ' Active' : '').'">'
-			.Anchor(Sprite('SpPopularDiscussions').' '.T('Popular'), '/discussions/popular', 'PopularDiscussions')
-		.'</li>';
-   }
-
-   public function DraftsController_BeforeDiscussionFilters_Handler($Sender) {
-        $this->DiscussionsController_BeforeDiscussionFilters_Handler($Sender);
-   }
-
-    public function CategoriesController_BeforeDiscussionFilters_Handler($Sender) {
-		$this->DiscussionsController_BeforeDiscussionFilters_Handler($Sender);
-   }
-
+	
 	/**
 	 * Add the "Popular Questions" tab.
-    */
+	 */
 	public function Base_BeforeDiscussionTabs_Handler($Sender) {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
+
 		echo '<li'.($Sender->RequestMethod == 'popular' ? ' class="Active"' : '').'>'
 			.Anchor(T('Popular'), '/discussions/popular', 'PopularDiscussions TabLink')
 		.'</li>';
 	}
 
+//   public function CategoriesController_BeforeDiscussionContent_Handler($Sender) {
+//      $this->DiscussionsController_BeforeDiscussionContent_Handler($Sender);
+//   }
+
    /**
     * Load popular discussions.
     */
    public function DiscussionsController_Popular_Create($Sender) {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
+
       $Sender->Title(T('Popular'));
+      $Sender->Head->Title($Sender->Head->Title());
+
+      $Offset = GetValue('0', $Sender->RequestArgs, '0');
 
       // Get rid of announcements from this view
       if ($Sender->Head) {
          $Sender->AddJsFile('discussions.js');
+         $Sender->AddJsFile('bookmark.js');
+         $Sender->AddJsFile('options.js');
          $Sender->Head->AddRss($Sender->SelfUrl.'/feed.rss', $Sender->Head->Title());
       }
-
-      // Add Modules
-      $Sender->AddModule('DiscussionFilterModule');
-      $Sender->AddModule('NewDiscussionModule');
-      $Sender->AddModule('CategoriesModule');
-      $Sender->AddModule('BookmarkedModule');
-
-      // Determine offset from $Page
-      $Page = GetValue('0', $Sender->RequestArgs, 'p1');
-      list($Offset, $Limit) = OffsetLimit($Page, C('Vanilla.Discussions.PerPage', 30));
       if (!is_numeric($Offset) || $Offset < 0)
          $Offset = 0;
-      $Page = PageNumber($Offset, $Limit);
+      
+      // Add Modules
+      $Sender->AddModule('NewDiscussionModule');
+      $BookmarkedModule = new BookmarkedModule($Sender);
+      $BookmarkedModule->GetData();
+      $Sender->AddModule($BookmarkedModule);
 
       $Sender->SetData('Category', FALSE, TRUE);
       $Limit = C('Vanilla.Discussions.PerPage', 30);
@@ -448,8 +461,7 @@ class VotingPlugin extends Gdn_Plugin {
       $CountDiscussions = $DiscussionModel->GetCount();
       $Sender->SetData('CountDiscussions', $CountDiscussions);
       $Sender->AnnounceData = FALSE;
-	  $Sender->SetData('Announcements', array(), TRUE);
-      $DiscussionModel->SQL->OrderBy('d.Score','desc');
+		$Sender->SetData('Announcements', array(), TRUE);
       $DiscussionModel->SQL->OrderBy('d.CountViews', 'desc');
       $Sender->DiscussionData = $DiscussionModel->Get($Offset, $Limit);
       $Sender->SetData('Discussions', $Sender->DiscussionData, TRUE);
@@ -465,46 +477,85 @@ class VotingPlugin extends Gdn_Plugin {
          $CountDiscussions,
          'discussions/popular/%1$s'
       );
-
-      if (!$Sender->Data('_PagerUrl'))
-         $Sender->SetData('_PagerUrl', 'discussions/popular/{Page}');
-      $Sender->SetData('_Page', $Page);
-      $Sender->SetData('_Limit', $Limit);
-
+      
       // Deliver json data if necessary
       if ($Sender->DeliveryType() != DELIVERY_TYPE_ALL) {
          $Sender->SetJson('LessRow', $Sender->Pager->ToString('less'));
          $Sender->SetJson('MoreRow', $Sender->Pager->ToString('more'));
          $Sender->View = 'discussions';
       }
-
+      
+      // Set a definition of the user's current timezone from the db. jQuery
+      // will pick this up, compare to the browser, and update the user's
+      // timezone if necessary.
+      $CurrentUser = Gdn::Session()->User;
+      if (is_object($CurrentUser)) {
+         $ClientHour = $CurrentUser->HourOffset + date('G', time());
+         $Sender->AddDefinition('SetClientHour', $ClientHour);
+      }
+      
       // Render the controller
       $Sender->View = 'index';
       $Sender->Render();
    }
+	
+	/**
+	 * If turning off scoring, make the forum go back to the traditional "jump
+	 * to what I last read" functionality.
+	 */
+   public function OnDisable() {
+		SaveToConfig('Vanilla.Comments.AutoOffset', TRUE);
+   }
+	
+   /**
+   * Don't let the users access the category management screens.
+   public function SettingsController_Render_Before(&$Sender) {
+      if (strpos(strtolower($Sender->RequestMethod), 'categor') > 0)
+         Redirect($Sender->Routes['DefaultPermission']);
+   }
+   */
 
-    /**
-     * Insert the voting html on comments in a discussion.
-     */
-    public function PostController_AfterCommentMeta_Handler($Sender) {
-        $this->DiscussionController_AfterCommentMeta_Handler($Sender);
-    }
 
-    /**
-     * Add voting css to post controller.
-     */
-    public function PostController_Render_Before($Sender) {
-        $this->AddJsCss($Sender);
-    }
+	/**
+	 * Insert the voting html on comments in a discussion.
+	 */
+	public function PostController_BeforeCommentMeta_Handler($Sender) {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
 
-    public function ProfileController_Render_Before($Sender) {
-        $this->AddJsCss($Sender);
-    }
+		$this->DiscussionController_BeforeCommentMeta_Handler($Sender);
+	}
 
-    public function Setup() {
-    }
+	/**
+	 * Add voting css to post controller.
+	 */
+	public function PostController_Render_Before($Sender) {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
 
-    public function OnDisable() {
-    }
+      $this->AddJsCss($Sender);
+	}
 
+   public function ProfileController_Render_Before($Sender) {
+//		if (!C('Plugins.Voting.Enabled'))
+//			return;
+
+      $this->AddJsCss($Sender);
+   }
+
+	/**
+	 * Add a field to the db for storing the "State" of a question.
+	 */
+   public function Setup() {
+      // Add some fields to the database
+      $Structure = Gdn::Structure();
+      
+      // "Unanswered" or "Answered"
+      $Structure->Table('Discussion')
+         ->Column('State', 'varchar(30)', TRUE)
+         ->Set(FALSE, FALSE); 
+
+//    SaveToConfig('Vanilla.Categories.Use', FALSE);
+//      SaveToConfig('Vanilla.Comments.AutoOffset', FALSE);
+   }
 }
