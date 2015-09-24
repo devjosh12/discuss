@@ -2237,5 +2237,32 @@ body span.Votes a.VoteUp::after {
     content: "+";
 }
 
+body span.Votes a:hover {
+    background-color: #38abe3;
+    border-radius: inherit;
+    color: #fff;
+    height: 29px;
+    text-shadow: none;
+}
+
+body ul.DataList div.Options {
+    right: 80px;
+    top: 11px;
+}
+
+body .Item-Body {
+    padding-top: 10px;
+}
+
+body span.Votes a.VoteUp:hover {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+body span.Votes a.VoteDown:hover {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
 /* voting end */
 
