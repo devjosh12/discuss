@@ -2218,7 +2218,7 @@ body span.Votes span {
     min-width: 45px;
 }
 body i.ArrowSprite {
-    background: #fff url("arrow_sprite.png") no-repeat scroll left top;
+    background: none;
 }
 
 body span.Votes a.VoteUp::after,
@@ -2234,7 +2234,7 @@ body span.Votes a.VoteUp, body span.Votes a.VoteDown {
     line-height: 10px;
 }
 body span.Votes a.VoteUp::after {
-    content: "-";
+    content: "+";
 }
 
 /* voting end */
