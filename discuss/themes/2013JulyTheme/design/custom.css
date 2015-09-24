@@ -2265,5 +2265,12 @@ body span.Votes a.VoteDown:hover {
     border-top-right-radius: 0;
 }
 
+body div.AnswerTabs li.Active a {
+    background-color: #fff;
+    border-color: #aaa;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
 /* voting end */
 
