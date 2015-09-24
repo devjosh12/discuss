@@ -1416,6 +1416,7 @@ body.Discussion .Back {
 
 .DataList .ItemContent {
 	margin:0 0 0 9px;
+    min-height: 65px;
 }
 
 .Drafts .ItemContent a.Title, .Discussions .ItemContent a.Title {
