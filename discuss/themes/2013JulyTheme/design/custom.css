@@ -2214,13 +2214,28 @@ body span.Votes span {
     color: #888;
     font-size: 12px;
     font-weight: bold;
-    line-height: 20px;
+    line-height: 25px;
     min-width: 45px;
 }
 body i.ArrowSprite {
     background: #fff url("arrow_sprite.png") no-repeat scroll left top;
 }
 
+body span.Votes a.VoteUp::after,
+body span.Votes a.VoteDown::after {
+    content: "-";
+    display: inline-block;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    width: 40px;
+}
+body span.Votes a.VoteUp, body span.Votes a.VoteDown {
+    line-height: 10px;
+}
+body span.Votes a.VoteUp::after {
+    content: "-";
+}
 
 /* voting end */
 
