@@ -13,7 +13,7 @@ class VerifiedPlus extends Gdn_Plugin  {
     
     public function assetModel_styleCss_handler($sender) {
         $sender->addCssFile('verified.css', 'plugins/VerifiedPlus');
-        var_dump($this->_CssFiles);
+        var_dump($sender->_CssFiles);
     }
     
     public function base_render_before($sender) {
