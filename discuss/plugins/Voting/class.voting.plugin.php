@@ -91,7 +91,7 @@ class VotingPlugin extends Gdn_Plugin {
 			
 		echo Wrap(
 			// Anchor(
-			Wrap(T('Comments')) . Gdn_Format::BigNumber($Discussion->CountComments - 1)
+			Wrap(T('Comments')) . Gdn_Format::BigNumber($Discussion->CountComments)
 			// ,'/discussion/'.$Discussion->DiscussionID.'/'.Gdn_Format::Url($Discussion->Name).($Discussion->CountCommentWatch > 0 ? '/#Item_'.$Discussion->CountCommentWatch : '')
 			// )
 			, 'div', array('class' => $Css));
@@ -190,7 +190,7 @@ class VotingPlugin extends Gdn_Plugin {
 //		if (!C('Plugins.Voting.Enabled'))
 //			return;
 
-		$AnswerCount = $Sender->Discussion->CountComments - 1;
+		$AnswerCount = $Sender->Discussion->CountComments;
 		$Type = GetValue('Type', $Sender->EventArguments, 'Comment');
 		if ($Type == 'Comment' && !GetValue('VoteHeaderWritten', $Sender)) { //$Type != 'Comment' && $AnswerCount > 0) {
 		?>
