@@ -2195,5 +2195,32 @@ body .StatBox span {
     padding-top: 2px;
 }
 
+body span.Votes a, body span.Votes span {
+    background-color: transparent;
+    display: inline-block;
+    padding: 0 !important;
+}
+body .Votes {
+    background-color: #73c4eb;
+    border-radius: 4px;
+    display: inline-block;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    width: 45px;
+}
+body span.Votes span {
+    background-color: #eee;
+    color: #888;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    min-width: 45px;
+}
+body i.ArrowSprite {
+    background: #fff url("arrow_sprite.png") no-repeat scroll left top;
+}
+
+
 /* voting end */
 
