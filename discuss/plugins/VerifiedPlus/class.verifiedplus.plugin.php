@@ -16,13 +16,13 @@ class VerifiedPlus extends Gdn_Plugin  {
     }
     
     public function base_render_before($sender) {
+        echo "hi";
         $sender->addJsFile('verifiedtip.js', 'plugins/VerifiedPlus');
     }
     
     public function userModel_setCalculatedFields_handler($sender, &$args) {
         $user = &$args['User'];
         if(val('Verified', $user)) {
-            echo "hi";
             setValue('_CssClass', $user, (val('_CssClass', $user) ? ' ' : '') . 'Verified');
         }
     }
