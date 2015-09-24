@@ -1,0 +1,35 @@
+.PhotoWrap.Verified::after {
+    background-color: #0099ff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    content: "✓";
+    display: inline-block;
+    font-family: arial;
+    font-size: 11px;
+    height: 14px;
+    left: -8px;
+    line-height: 14px;
+    position: absolute;
+    text-align: center;
+    top: -8px;
+    width: 14px;
+}
+
+.VerifiedTip {
+    background-color: rgba(0,0,0,0.65);
+    padding: 2px 4px;
+    color: #fff;
+    border-radius: 4px;
+    margin-top: 12px;
+    line-height: 18px;
+    display: inline-block;
+}
+
+.VerifiedTipCover {
+    position: absolute;
+    height: 18px;
+    width: 100%;
+    display: inline-block;
+    left: 0;
+}

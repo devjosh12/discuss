@@ -1,8 +1,8 @@
 <?php if (!defined('APPLICATION')) exit();
 
 $PluginInfo['VerifiedPlus'] = array(
-    'Name' => 'Verfied Plus',
-    'Description' => 'Verfied Plus',
+    'Name' => 'Verified Plus',
+    'Description' => 'Class and tool tip for verified users',
     'RequiredApplications' => array('Vanilla' => '2.1'),
     'Version' => '0.1b',
     'Author' => "Paul Thomas",
@@ -10,6 +10,14 @@ $PluginInfo['VerifiedPlus'] = array(
 );
 
 class VerifiedPlus extends Gdn_Plugin  {
+    
+    public function assetModel_styleCss_handler($sender) {
+        $sender->addCssFile('verified.css', 'plugins/VerifiedPlus');
+    }
+    
+    public function base_render_before($sender) {
+        $sender->addJsFile('verifiedtip.js', 'plugins/VerifiedPlus');
+    }
     
     public function userModel_setCalculatedFields_handler($sender, &$args) {
         $user = &$args['User'];
