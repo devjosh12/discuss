@@ -20,8 +20,9 @@ class VerifiedPlus extends Gdn_Plugin  {
     }
     
     protected function verifyUser($user) {
+        error_log(val('Verified', $user));
         if(val('Verified', $user)) {
-            setValue('_CssClass', $user, (val('_CssClass', $user) && strpos(val('_CssClass', $user), 'Verified') === false ? ' ' : '') . 'Verified');
+            setValue('_CssClass', $user, (val('_CssClass', $user) ? ' ' : '') . 'Verified');
         }
     }
     
