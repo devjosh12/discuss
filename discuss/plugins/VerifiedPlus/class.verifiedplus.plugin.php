@@ -20,11 +20,11 @@ class VerifiedPlus extends Gdn_Plugin  {
     }
     
     protected function verifyUser($user) {
-        if( val('Verified', $user) )
-            error_log(var_export($user, true));
         if(val('Verified', $user)) {
             setValue('_CssClass', $user, (val('_CssClass', $user) ? ' ' : '') . 'Verified');
         }
+        if( val('Verified', $user) )
+            error_log(var_export($user, true));
     }
     
     public function userModel_setCalculatedFields_handler($sender, &$args) {
