@@ -8,7 +8,7 @@ jQuery(document.body).ready(function($) {
             $('<span class="VerifiedTipCover"></span>')
         );
     $(document.body).append(verfifiedTip);
-    $('a.Verified').livequery(function(){
+    $('a.Verified .ProfilePhoto').livequery(function(){
         $(this).removeAttr("title");
         $(this).hover(
             function(e){
