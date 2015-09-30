@@ -41,6 +41,10 @@ ul.Discussions .PhotoWrap.Verified::after {
     z-index: 1001;
 }
 
+ul.Discussions .VerifiedTip {
+    margin-top: 18px;
+}
+
 .VerifiedTipCover {
     position: absolute;
     height: 18px;
