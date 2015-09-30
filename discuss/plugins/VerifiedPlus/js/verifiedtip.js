@@ -8,14 +8,14 @@ jQuery(document.body).ready(function($) {
             $('<span class="VerifiedTipCover"></span>')
         );
     $(document.body).append(verfifiedTip);
-    $('a.Verified .ProfilePhoto').livequery(function(){
+    $('a.Verified').livequery(function(){
         $(this).removeAttr("title");
         $(this).hover(
             function(e){
                 $(verfifiedTip).css({
                     'position': 'absolute', 
-                    'left': ($(this).offset().left - $(verfifiedTip).width() / 2) + 'px',
-                    'top': ($(this).offset().top) + 'px'
+                    'left': ($(this).find('.ProfilePhoto').offset().left - $(verfifiedTip).width() / 2) + 'px',
+                    'top': ($(this).find('.ProfilePhoto').offset().top) + 'px'
                 });
                 $(verfifiedTip).fadeIn("slow");
             },
