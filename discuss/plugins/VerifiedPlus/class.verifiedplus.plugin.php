@@ -19,12 +19,27 @@ class VerifiedPlus extends Gdn_Plugin  {
         $sender->addJsFile('verifiedtip.js', 'plugins/VerifiedPlus');
     }
     
+    protected function verifyUser($user) {
+        if(val('Verified', $user)) {
+            setValue('_CssClass', $user, (val('_CssClass', $user) && strpos(val('_CssClass', $user), 'Verified') === false ? ' ' : '') . 'Verified');
+        }
+    }
+    
     public function userModel_setCalculatedFields_handler($sender, &$args) {
         $user = &$args['User'];
-        error_log("<!--".val('Verified', $user)."-->");
-        if(val('Verified', $user)) {
-            setValue('_CssClass', $user, (val('_CssClass', $user) ? ' ' : '') . 'Verified');
+        $this->verifyUser($user);
+    }
+    
+    public function userModel_AfterGetIDs_handler($sender, $args) {
+        $users = &$args['LoadedUsers'];
+        foreach($users as $user) {
+            $this->verifyUser($user);
         }
+    }
+    
+    public function userModel_AfterGetID_handler($sender, $args) {
+        $users = &$args['LoadedUser'];
+        $this->verifyUser($user);
     }
 
 }
