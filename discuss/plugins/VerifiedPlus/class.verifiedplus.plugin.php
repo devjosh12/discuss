@@ -21,7 +21,7 @@ class VerifiedPlus extends Gdn_Plugin  {
     
     public function userModel_setCalculatedFields_handler($sender, &$args) {
         $user = &$args['User'];
-        echo "<!--".var_export($user)."-->";
+        echo "<!--".var_export($user, true)."-->";
         if(val('Verified', $user)) {
             setValue('_CssClass', $user, (val('_CssClass', $user) ? ' ' : '') . 'Verified');
         }
