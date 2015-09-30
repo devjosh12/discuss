@@ -2177,19 +2177,23 @@ body ul.DataList div.Meta .NewCommentCount {
 body ul.DataList div.Meta .NewCommentCount .Number {
     margin: 2px;
 }
+
 body .StatBox {
     font-size: 11px;
     height: 36px;
     margin-top: 1px;
 }
+
 body .DataList .Options, body .MessageList .Options {
     margin-right: -24px;
     margin-top: -2px;
 }
+
 body .Read .ViewsBox {
     background-color: #ddd;
     color: #555;
 }
+
 body .StatBox span {
     font-size: 9px;
     padding-bottom: 5px;
@@ -2210,6 +2214,7 @@ body .Votes {
     text-align: center;
     width: 45px;
 }
+
 body span.Votes span {
     background-color: #eee;
     color: #888;
@@ -2219,30 +2224,31 @@ body span.Votes span {
     min-width: 45px;
 }
 body i.ArrowSprite {
-    background: none;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 }
 
-body span.Votes a.VoteUp::after,
-body span.Votes a.VoteDown::after {
-    content: "-";
+body span.Votes a.VoteUp::after, body span.Votes a.VoteDown::after {
+    content: "\25BE";
     display: inline-block;
-    font-size: 20px;
+    font-size: 30px;
     margin: 0;
     padding: 0;
     width: 40px;
 }
+
 body span.Votes a.VoteUp, body span.Votes a.VoteDown {
     line-height: 10px;
 }
+
 body span.Votes a.VoteUp::after {
-    content: "+";
+    content: "\25B4";
 }
 
 body span.Votes a:hover {
     background-color: #38abe3;
     border-radius: inherit;
     color: #fff;
-    height: 29px;
+    height: 32px;
     text-shadow: none;
 }
 
@@ -2271,6 +2277,5 @@ body div.AnswerTabs li.Active a {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
-
 /* voting end */
 
