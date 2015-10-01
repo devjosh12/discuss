@@ -67,9 +67,9 @@
 		</div>
 		<div class="Overrides">
 			<?php
-				$Classes = array('ActivityModel');
-				$AFCPlugin = Gdn::PluginManager()->GetPluginInstance('AeliaFoundationClasses');
-				echo $AFCPlugin->GetOverridesStatusView($this, $Classes);
+				//$Classes = array('ActivityModel');
+				//$AFCPlugin = Gdn::PluginManager()->GetPluginInstance('AeliaFoundationClasses');
+				//echo $AFCPlugin->GetOverridesStatusView($this, $Classes);
 			?>
 		</div>
 	</div>

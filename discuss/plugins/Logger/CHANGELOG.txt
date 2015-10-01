@@ -1,0 +1,18 @@
+Advancer Logger for Vanilla Forums - Change Log
+
+12.11.04
+- Initial release
+
+12.11.09
+- Removed all "calls by reference" for compatibility with PHP 5.4+
+
+12.11.22
+- Updated readme.html
+- Removed some "calls by reference" that were still left from previous cleanup
+
+12.11.23
+- Modified Log4php AutoLoader so that it raises a fatal error when a class cannot be loaded
+
+13.01.04
+- Modified Log4php Autoloader to work around a bug in the autoloading mechanism on PHP 5.2.
+- Added setting of pages "CurrentPath" before checking permissions, to prevent rendering error when user is not authorised to view a page

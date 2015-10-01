@@ -1,0 +1,85 @@
+/**
+${licence}
+*/
+
+
+/* Styles for Cron Jobs Tables */
+.CronJobsPlugin #CronJobsList .Title {
+	text-align: center;
+}
+
+.CronJobsPlugin table tbody {
+	border-bottom: 1px solid #A5D0E7;
+}
+
+.CronJobsPlugin .Content {
+	border-top: 1px solid silver;
+}
+
+.CronJobsPlugin .Results table {
+	width: 62em;
+}
+
+.CronJobsPlugin fieldset p {
+	padding-left: 20px;
+}
+
+.CronJobsPlugin legend {
+	width: 100% !important;
+}
+
+#CronResult {
+	padding-left: 1em;
+}
+
+/*** Styles for Autocomplete fields ***/
+.ac_results {
+	padding: 0;
+	border: 1px solid #bbb;
+	border-top: 0;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.ac_results li {
+	margin: 0;
+	padding: 5px;
+	cursor: default;
+	display: block;
+	/*
+	if width will be 100% horizontal scrollbar will apear
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font-size: 12px;
+	/*
+	it is very important, if line-height not setted or setted
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+	border-bottom: 1px solid #bbb;
+	text-align: left;
+}
+.ac_lastitem {
+	border-bottom: 0 !important;
+}
+.ac_results strong {
+	font-weight: bold;
+	background: #daf4fd;
+}
+.ac_over strong {
+	font-weight: bold;
+	background: #2ab0de;
+}
+.ac_over {
+	background: #44c7f4;
+	color: #fff;
+}
