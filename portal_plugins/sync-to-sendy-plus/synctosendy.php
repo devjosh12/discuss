@@ -89,7 +89,7 @@ add_action('wpmu_new_user', 'subscribe_to_sendy');
 function subscribe_to_sendy($user_id) {
     error_log('sendy:subscribe');
     if ($user_id) {
-        $user = get_user_by($user_id, 'id');
+        $user = get_user_by('id', $user_id);
         error_log('sendy:'.$user_id);
 
         $sendyurl = (get_option('syncsendy_url') != '') ? get_option('syncsendy_url') : 'http://sendy.yourdomain.com/';
