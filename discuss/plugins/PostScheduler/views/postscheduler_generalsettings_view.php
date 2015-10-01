@@ -1,12 +1,6 @@
 <?php if (!defined('APPLICATION')) exit();
-/**
-Copyright (c) 2013 Diego Zanella (http://dev.pathtoenlightenment.net)
 
-@package PostScheduler for Vanilla Forums 2.0
-@author Diego Zanella <diego@pathtoenlightenment.net>
-@copyright Copyright (c) 2013 Diego Zanella (http://dev.pathtoenlightenment.net)
-@license http://dev.pathtoenlightenment.net/noncommercial-licence/ Noncommercial Licence
-*/
+
 ?>
 <div class="PostSchedulerPlugin">
 	<div class="Header">
@@ -31,12 +25,23 @@ Copyright (c) 2013 Diego Zanella (http://dev.pathtoenlightenment.net)
 			<ul>
 				<li>
 					<?php
+						echo T('The schedule date/time you will see on a Discussion is always ' .
+									 'in <strong>your time zone</strong>. That is, if you schedule ' .
+									 'a Discussion for 12 noon and you are in GMT Time Zone, you will see a message ' .
+									 'stating that the post will appear at <strong>12 noon</strong>.<br />' .
+									 'If an Administrator from Kyoto (GMT+9) would look at the same post, he would ' .
+									 'see a message saying that the post will appear at <strong>9 PM</strong>.'
+									 );
+					?>
+				</li>
+				<li>
+					<?php
 						echo T('You can change the schedule of a Discussion as many times as you like, ' .
 									 'even after is was already displayed. Keep in mind, though, that, if you ' .
 									 'reschedule a visible discussion to appear at a later date, it will disappear ' .
 									 'from the Discussions list, but it could still be accessed by typing its URL.<br />' .
 									 'To avoid confusion, it is recommended to avoid rescheduling a discussion that ' .
-									 'is already visible');
+									 'is already visible.');
 					?>
 				</li>
 				<li>
@@ -59,6 +64,13 @@ Copyright (c) 2013 Diego Zanella (http://dev.pathtoenlightenment.net)
 					?>
 				</li>
 			</ul>
+		</div>
+		<div class="Overrides">
+			<?php
+				$Classes = array('ActivityModel');
+				$AFCPlugin = Gdn::PluginManager()->GetPluginInstance('AeliaFoundationClasses');
+				echo $AFCPlugin->GetOverridesStatusView($this, $Classes);
+			?>
 		</div>
 	</div>
 </div>

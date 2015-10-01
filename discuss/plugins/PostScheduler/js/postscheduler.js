@@ -1,11 +1,4 @@
-/**
-Copyright (c) 2013 Diego Zanella (http://dev.pathtoenlightenment.net)
 
-@package PostScheduler for Vanilla Forums 2.0
-@author Diego Zanella <diego@pathtoenlightenment.net>
-@copyright Copyright (c) 2013 Diego Zanella (http://dev.pathtoenlightenment.net)
-@license http://dev.pathtoenlightenment.net/noncommercial-licence/ Noncommercial Licence
-*/
 
 /**
  * Event handler. Invoked every time a User selects a date in the DateTimePicker.
@@ -29,10 +22,10 @@ function DisplayScheduleTime(DateText, Inst) {
 $(document).ready(function(){
 	var ScheduleTimePicker = $('#Form_ScheduleTime').datetimepicker({
 		dateFormat: 'yy-mm-dd',
-		timeFormat: 'hh:mm',
-		timeText: PSchedulerTimeText,
-		hourText: PSchedulerHourText,
-		minuteText: PSchedulerMinuteText,
+		timeFormat: 'HH:mm',
+		timeText: PostSchedulerTimeText,
+		hourText: PostSchedulerHourText,
+		minuteText: PostSchedulerMinuteText,
 		onSelect: DisplayScheduleTime
 	});
 

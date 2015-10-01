@@ -1,0 +1,13 @@
+/* PostScheduler Plugin */
+
+
+/* Menu item with link to Scheduled Discussions (Vanilla 2.1) */
+.FilterMenu .MyScheduledDiscussions .TabLink {
+	/* TODO Display icon next to the menu entry */
+	background: url(../images/myscheduled_menu_bg.png) top left no-repeat;
+	padding-left: 16px;
+}
+
+.FilterMenu .MyScheduledDiscussions {
+	padding-left: 2px !important;
+}

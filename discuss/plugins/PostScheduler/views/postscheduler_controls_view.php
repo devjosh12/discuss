@@ -1,12 +1,5 @@
 <?php if (!defined('APPLICATION')) exit();
-/**
-Copyright (c) 2013 Diego Zanella (http://dev.pathtoenlightenment.net)
 
-@package PostScheduler for Vanilla Forums 2.0
-@author Diego Zanella <diego@pathtoenlightenment.net>
-@copyright Copyright (c) 2013 Diego Zanella (http://dev.pathtoenlightenment.net)
-@license http://dev.pathtoenlightenment.net/noncommercial-licence/ Noncommercial Licence
-*/
 ?>
 
 <?php
@@ -41,15 +34,19 @@ function FormatScheduleTime($ScheduleTime) {
 }
 ?>
 <script type="text/javascript">
-	var PSchedulerTimeText = '<?php echo T('Time'); ?>';
-	var PSchedulerHourText = '<?php echo T('Hour'); ?>';
-	var PSchedulerMinuteText = '<?php echo T('Minute'); ?>';
+	var PostSchedulerTimeText = '<?php echo T('Time'); ?>';
+	var PostSchedulerHourText = '<?php echo T('Hour'); ?>';
+	var PostSchedulerMinuteText = '<?php echo T('Minute'); ?>';
 </script>
 <?php // End of JS initialisation ?>
 
 <li class="PostScheduler Controls">
 	<?php
-	$this->Form->SetValue('ScheduleTime', FormatScheduleTime($this->Form->GetValue('ScheduleTime')));
+	// Schedule Time is stored as UTC and must be converted to Server's Local Time
+	// Zone before formatting
+	$this->Form->SetValue('ScheduleTime', FormatScheduleTime(
+		PostSchedulerPlugin::UTCDateTimeToLocalDateTime($this->Form->GetValue('ScheduleTime')))
+	);
 
 	$LastCommentID = $this->Form->GetValue('LastCommentID');
 	if(!empty($LastCommentID)) {

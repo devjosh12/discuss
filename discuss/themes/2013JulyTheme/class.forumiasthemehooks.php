@@ -12,10 +12,10 @@ class ForumIASThemeHooks extends Gdn_Plugin {
        if (Gdn::Session()->IsValid() || $Sender->ControllerName == 'entrycontroller') {
            return;
        }
-       //$Sender->AddCssFile('featherlight.css');
-       //$Sender->AddJsFile('featherlight.js');
-       //$Sender->AddJsFile('join_popup.js');
-       //$Sender->AddDefinition('joinPopup', file_get_contents("/home/forumias/www/join_popup.html"));
+       $Sender->AddCssFile('featherlight.css');
+       $Sender->AddJsFile('featherlight.js');
+       $Sender->AddJsFile('join_popup.js');
+       $Sender->AddDefinition('joinPopup', file_get_contents("/home/forumias/www/join_popup.html"));
     }
 }
 
