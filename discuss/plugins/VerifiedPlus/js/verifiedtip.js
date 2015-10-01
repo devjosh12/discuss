@@ -20,8 +20,6 @@ jQuery(document.body).ready(function($) {
                 $(verfifiedTip).fadeIn("slow");
             },
             function(e){
-                e.pageX
-                e.pageY
                 var o = $(verfifiedTip).offset();
                 var x = e.pageX - o.left;
                 var y = e.pageY - o.top;
