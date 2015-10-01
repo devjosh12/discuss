@@ -86,8 +86,10 @@ Don\'t have Sendy yet? <a href="http://sendy.co/?ref=1JYIN">Download it here</a>
 add_action('user_register', 'subscribe_to_sendy');
 
 function subscribe_to_sendy($user_id) {
+    error_log('sendy:subscribe');
     if ($user_id) {
         $user = get_user_by($user_id, 'ID');
+        error_log('sendy:'.$user_id);
 
         $sendyurl = (get_option('syncsendy_url') != '') ? get_option('syncsendy_url') : 'http://sendy.yourdomain.com/';
         $sendylist = (get_option('syncsendy_list') != '') ? get_option('syncsendy_list') : '1';
@@ -100,6 +102,7 @@ function subscribe_to_sendy($user_id) {
             'header' => "Connection: close\r\n".
                         "Content-Length: ".strlen($query)."\r\n",
             'content'=> $query );
+        error_log('sendy:'.var_export($contextData, true));
         $context = stream_context_create(array( 'http' => $contextData ));
         $result = file_get_contents (
             $sendyurl,
