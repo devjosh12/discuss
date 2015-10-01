@@ -100,13 +100,13 @@ function subscribe_to_sendy($user_id) {
             'header' => "Connection: close\r\n".
                         "Content-Length: ".strlen($query)."\r\n",
             'content'=> $query );
-
         $context = stream_context_create(array( 'http' => $contextData ));
         $result = file_get_contents (
             $sendyurl,
             false,
             $context
         );
+        error_log('sendy:'.$result);
     }
 }
 
