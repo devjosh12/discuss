@@ -8,7 +8,7 @@
  *
  * This class is compatible only with Vanilla 2.1b1.
  */
-class ActivityManager21b1 extends ActivityManager {
+class ActivityManager21 extends ActivityManager {
 	/* @var int Indicates that a Notification has been scheduled. The value "103"
 	 * comes from the fact that "3" means "pending". We add 100 to make sure that
 	 * we won't cause a conflict with a new possible value introduced by Vanilla
