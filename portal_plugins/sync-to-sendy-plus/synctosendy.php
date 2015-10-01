@@ -71,7 +71,7 @@ Don\'t have Sendy yet? <a href="http://sendy.co/?ref=1JYIN">Download it here</a>
 </tr>
 <tr>
 <th scope="row">List ID</th>
-<td><input type="text" name="syncsendy_list" class="small-text" value="' . $sendylist . '" /></td>
+<td><input type="text" name="syncsendy_list" class="regular-text" value="' . $sendylist . '" /></td>
 </tr>
 </tbody>
 </table>
