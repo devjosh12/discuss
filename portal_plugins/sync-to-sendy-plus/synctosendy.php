@@ -84,6 +84,7 @@ Don\'t have Sendy yet? <a href="http://sendy.co/?ref=1JYIN">Download it here</a>
 
 
 add_action('user_register', 'subscribe_to_sendy');
+add_action('wpmu_new_user', 'subscribe_to_sendy');
 
 function subscribe_to_sendy($user_id) {
     error_log('sendy:subscribe');
