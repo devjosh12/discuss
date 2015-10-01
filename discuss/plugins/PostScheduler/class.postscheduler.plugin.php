@@ -239,7 +239,7 @@ class PostSchedulerPlugin extends Gdn_Plugin {
 
 		$Sender->AddCssFile($this->GetResource('design/jquery-ui/' . $UITheme . '/jquery-ui-1.10.0.custom.min.css', FALSE, FALSE));
 
-		$Sender->AddJsFile($this->GetResource('js/jquery-ui-1.10.0.custom.min.js', FALSE, FALSE));
+		//$Sender->AddJsFile($this->GetResource('js/jquery-ui-1.10.0.custom.min.js', FALSE, FALSE));
 		$Sender->AddJsFile($this->GetResource('js/jquery-ui-timepicker-addon.js', FALSE, FALSE));
 		$Sender->AddJsFile($this->GetResource('js/postscheduler.js', FALSE, FALSE));
 
