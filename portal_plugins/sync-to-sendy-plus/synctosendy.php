@@ -92,7 +92,7 @@ function subscribe_to_sendy($user_id) {
         $sendyurl = (get_option('syncsendy_url') != '') ? get_option('syncsendy_url') : 'http://sendy.yourdomain.com/';
         $sendylist = (get_option('syncsendy_list') != '') ? get_option('syncsendy_list') : '1';
 
-        $params = array('name' => $user['user_login'], 'email' => $user['user_email'], 'list' => $sendylist, 'boolean' => 'true');
+        $params = array('name' => $user->user_login, 'email' => $user->user_email, 'list' => $sendylist, 'boolean' => 'true');
         $query = http_build_query($params);
 
         $contextData = array ( 
