@@ -26,6 +26,7 @@ class ForumIASThemeHooks extends Gdn_Plugin {
         }
         
         // footer links module
+        include dirname(__FILE__) . '/class.forumiasfootmodule.php';
         $Sender->AddModule('ForumIASFootModule');
     }
 }
