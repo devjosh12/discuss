@@ -1,5 +1,6 @@
 .PhotoWrap {
-    position: static;
+    float: left;
+    position: relative;
 }
 
 .PhotoWrap.Verified::after {
