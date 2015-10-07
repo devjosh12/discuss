@@ -404,9 +404,6 @@ class PermissionModel extends Gdn_Model {
       $Result[] = $GlobalPermissions;
       
       $JunctionPermissions = $this->GetJunctionPermissions(array('RoleID' => $RoleID), NULL, $LimitToSuffix);
-      
-      var_dump($Result, $JunctionPermissions);
-      
       $Result = array_merge($Result, $JunctionPermissions);
       
       return $Result;
