@@ -29,6 +29,7 @@ ul.Discussions .PhotoWrap.Verified::after {
     top: 5px;
 }
 
+ul.MessageList .Item,
 ul.Discussions .Item {
     margin: 0 8px;
     padding: 8px 0;
