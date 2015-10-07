@@ -16,7 +16,7 @@ jQuery(document.body).ready(function($) {
                 var l = $(this).find('.ProfilePhoto').offset().left - $(verfifiedTip).width() / 2;
                 
                 if (l < 5) {
-                    l = 5;
+                    l = $(this).find('.ProfilePhoto').offset().left;
                 }
                 
                 $(verfifiedTip).css({
