@@ -12,7 +12,7 @@ class ForumIASThemeHooks extends Gdn_Plugin {
     public function Base_Render_Before($Sender) {
         
         // set favicon
-        $Sender->Head->SetFavIcon($this->GetResource("/design/images/favicon.ico"));
+        $Sender->Head->SetFavIcon($this->GetResource("/design/images/favicon.ico", FALSE, FALSE));
         
         // site meta description
         $Sender->Description("Knowledge Sharing network for UPSC, IAS Preparation, IAS prelims, IAS mains, IAS Interview, IPS Topper, IAS topper interview, IAS Test Series, IAS Coaching, IAS Notes, IAS Books, IAS CSAT Preparation");
