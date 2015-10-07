@@ -1,3 +1,7 @@
+.PhotoWrap {
+    position: static;
+}
+
 .PhotoWrap.Verified::after {
     background-color: #0099ff;
     border: 2px solid #fff;
@@ -8,11 +12,11 @@
     font-family: arial;
     font-size: 11px;
     height: 14px;
-    left: -8px;
+    left: 0px;
     line-height: 14px;
     position: absolute;
     text-align: center;
-    top: -8px;
+    top: 0px;
     width: 14px;
 }
 
@@ -22,11 +26,6 @@ ul.Discussions .PhotoWrap .ProfilePhoto {
     height: 45px;
     margin-right: 8px;
     width: 45px;
-}
-
-ul.Discussions .PhotoWrap.Verified::after {
-    left: -62px;
-    top: 5px;
 }
 
 ul.MessageList .Item,
