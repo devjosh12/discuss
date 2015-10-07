@@ -12,9 +12,16 @@ jQuery(document.body).ready(function($) {
         $(this).removeAttr("title");
         $(this).hover(
             function(e){
+                
+                var l = $(this).find('.ProfilePhoto').offset().left - $(verfifiedTip).width() / 2;
+                
+                if (l < 5) {
+                    l = 5;
+                }
+                
                 $(verfifiedTip).css({
                     'position': 'absolute', 
-                    'left': ($(this).find('.ProfilePhoto').offset().left - $(verfifiedTip).width() / 2) + 'px',
+                    'left': l + 'px',
                     'top': ($(this).find('.ProfilePhoto').offset().top) + 'px'
                 });
                 $(verfifiedTip).fadeIn("slow");
