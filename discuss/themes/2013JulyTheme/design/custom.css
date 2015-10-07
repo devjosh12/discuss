@@ -2157,7 +2157,8 @@ border-top:thick double #000000;*/
 list-style:none;
 }
 
-#themeCredit {
+
+#Foot a#themeCredit {
     color:#016e97;
     text-align: center;
 }
