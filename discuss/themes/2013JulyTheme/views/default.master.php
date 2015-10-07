@@ -69,7 +69,6 @@
         <div id="Foot">
             <?php
                 $this->RenderAsset('Foot');
-                echo Gdn_Theme::Module('ForumIASFootModule');
             ?>
         </div>
         <?php $this->FireEvent('AfterBody'); ?>
