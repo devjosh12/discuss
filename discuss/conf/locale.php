@@ -1,5 +1,5 @@
 <?php if (!defined('APPLICATION')) exit();
-$Definition['Howdy, Stranger!'] = '<h2>Welcome!</h2>';
+$Definition['Howdy, Stranger!'] = 'Welcome!';
 $Definition["GuestModule.Message"] = "We are a secret self-moderated community for Civil Services preparation. Feel free to join, start a discussion, answer a question or just to say Thank you.</br></br>Just dont spread the word ;)</br></br>Sign in or join with Facebook or Google";
 $Definition['Welcome Aboard!'] = "Welcome to ForumIAS.com! :-) </br> Set the tone right, by contributing well";
 //$Definition['Howdy, Stranger!'] = 'Hi !';
