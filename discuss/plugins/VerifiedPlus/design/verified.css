@@ -29,6 +29,10 @@ ul.Discussions .PhotoWrap.Verified::after {
     top: 5px;
 }
 
+ul.Discussions .Item {
+    margin: 0 8px;
+    padding: 8px 0;
+}
 
 .VerifiedTip {
     background-color: rgba(0,0,0,0.65);
