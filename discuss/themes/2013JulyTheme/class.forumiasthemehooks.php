@@ -25,9 +25,12 @@ class ForumIASThemeHooks extends Gdn_Plugin {
             $Sender->AddDefinition('joinPopup', file_get_contents("/home/forumias/www/join_popup.html"));
         }
         
-        // footer links module
-        include dirname(__FILE__) . '/class.forumiasfootmodule.php';
-        $Sender->AddModule('ForumIASFootModule');
+        
+        if (in_array($Sender->Application(), array('vanilla', 'conversations'))) {
+            // footer links module
+            include dirname(__FILE__) . '/class.forumiasfootmodule.php';
+            $Sender->AddModule('ForumIASFootModule');
+        }
     }
 }
 
