@@ -18,15 +18,15 @@
 
 
 ul.Discussions .PhotoWrap .ProfilePhoto {
-    float: none;
-    left: 10px;
-    position: absolute;
-    top: 18px;
-    vertical-align: top;
+    float: left;
+    height: 45px;
+    margin-right: 8px;
+    width: 45px;
 }
+
 ul.Discussions .PhotoWrap.Verified::after {
-    left: 0;
-    top: 10px;
+    left: -62px;
+    top: 5px;
 }
 
 
