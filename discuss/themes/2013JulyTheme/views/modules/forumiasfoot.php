@@ -40,7 +40,7 @@
         <a href="https://docs.google.com/forms/d/1yZ3N3mqhPeap6pQV3RmVQFg2rPJ5qMXmRcOdUDbBii4/viewform"><b>Work With Us</b></a>
         |
         <a href="http://prelims.forumias.com/contact-us" target="_blank">Contact Us</a>
-        <a href="https://plus.google.com/116289206238952936348?rel=author">|</a>
+        |
         <a href="https://docs.google.com/forms/d/1TdmEYhLI9CBy4nej57fi6HeppBiQV_2VjxO_3Q4PFsM/viewform" target="_blank">Send us a message</a>
         |
         <a href="https://sales.forumias.com" target="_blank"><b>Advertise With Us</b></a>
