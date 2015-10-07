@@ -6,7 +6,16 @@
 </head>
 <body id="<?php echo $BodyIdentifier; ?>" class="<?php echo $this->CssClass; ?>">
     <div id="Frame">
-        <div id="Head">                 
+        <div class="TopMenu">
+            <a href="http://is.gd/fmenu1">Portal</a>
+            | 
+            <a href="http://forumias.com/portal/todays-newspaper/">Daily Newspaper</a>
+            |
+            <a href="http://forumias.com/portal/say-hello-to-forumias-issue-debates/">Issue Debates</a>
+            |
+            <a href="http://forumias.com/portal/moderator-elections-2015/" target="_blank">Moderators Poll 2015</a>  
+        </div>
+        <div id="Head">
             <div class="wrapper">
                 <div class="logo">
                     <a href="<?php echo Url('/'); ?>"><?php echo Gdn_Theme::Logo(); ?></a>
@@ -60,6 +69,7 @@
         <div id="Foot">
             <?php
                 $this->RenderAsset('Foot');
+                echo Gdn_Theme::Module('');
             ?>
         </div>
         <?php $this->FireEvent('AfterBody'); ?>
