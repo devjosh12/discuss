@@ -64,7 +64,7 @@
     <div id="Body">
         <div id="Content"><?php $this->RenderAsset('Content'); ?></div>
         <div id="Panel">
-            <?php $this->RenderAsset('Panel'); ?></div>
+            <?php $this->RenderAsset('Panel'); ?>
         </div>
         <div id="Foot">
             <?php
