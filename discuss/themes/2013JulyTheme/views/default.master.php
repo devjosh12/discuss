@@ -23,7 +23,7 @@
             </div>
         </div>
         <div id="scrollerHead" class="menuwrapper">
-            <img class= "menuicon" src="http://i.imgur.com/PMEdOhG.png">
+            <img class= "menuicon" src="http://i.imgur.com/PMEdOhG.png" alt="ForumIAS Logo">
             <div class="Menu">
             <?php
                     $Session = Gdn::Session();
