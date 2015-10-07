@@ -32,7 +32,7 @@ ul.Discussions .PhotoWrap.Verified::after {
 ul.MessageList .Item,
 ul.Discussions .Item {
     margin: 0 8px;
-    padding: 8px 0;
+    padding: 8px 0 0 8px;
 }
 
 .VerifiedTip {
