@@ -15,22 +15,7 @@
 <?php include_once("analyticstracking.php") ?>
    <div id="Frame">
       <div id="Head"> 				
-      	<div class="wrapper"><div class="logo"><a href="<?php echo Url('/'); ?>"><?php echo Gdn_Theme::Logo(); ?></a>
-      	<div style="float:right; margin-top:-10px;"><div id="Gsearch">
-<script>
-  (function() {
-    var cx = '003139128122751677825:tfiuwrogjao';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>	</div></div>
-      	</div></div>
+      	<div class="wrapper"><div class="logo"><a href="<?php echo Url('/'); ?>"><?php echo Gdn_Theme::Logo(); ?></a></div></div>
       	<div id="scrollerHead" class="menuwrapper">
          <div class="Menu">
             <?php
