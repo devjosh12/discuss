@@ -15,6 +15,17 @@
             |
             <a href="http://forumias.com/portal/moderator-elections-2015/" target="_blank">Moderators Poll 2015</a>  
         </div>
+        <script type="text/javascript"><!--
+        google_ad_client = "ca-pub-1140293958287456";
+        /* For next to logo */
+        google_ad_slot = "8241640707";
+        google_ad_width = 468;
+        google_ad_height = 60;
+        //-->
+        </script>
+        <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
         <div id="Head">
             <div class="wrapper">
                 <div class="logo">
