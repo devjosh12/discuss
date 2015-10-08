@@ -704,6 +704,10 @@ body.Discussion .Discussion .Options {
     color:#70727c;
 }
 
+.Meta-Discussion .ViewCount {
+    display: none;
+}
+
 .DataList .Excerpt a {
     color:#333;
     display:block;
