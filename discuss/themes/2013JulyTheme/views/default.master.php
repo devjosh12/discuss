@@ -62,7 +62,7 @@
         </div>
     </div>
     <div id="Body">
-        <div id="Content"><?php $this->RenderAsset('Content'); ?></div>
+        <div id="Content"><iframe src="http://files.bannersnack.com/iframe/rotator.html?hash=17fd91d6a6e86ea9fe3cc55cr1157969&t=1435031673" width="728" height="90" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"></iframe><?php $this->RenderAsset('Content'); ?></div>
         <div id="Panel">
             <?php $this->RenderAsset('Panel'); ?>
         </div>
