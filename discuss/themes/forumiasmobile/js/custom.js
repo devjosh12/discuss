@@ -1,14 +1,3 @@
-jQuery(document).ready(function($) {
-    var div = $('#scrollerHead');
-    var start = $(div).offset().top;
-    $(div).css('z-index','1030');
-
-    $.event.add(window, "scroll", function() {
-        var p = $(window).scrollTop();
-        $(div).css('position',((p)>start) ? 'fixed' : 'static');
-        $(div).css('top',((p)>start) ? '0px' : '');
-    });
-    
     var clicky_site_ids = clicky_site_ids || [];
     clicky_site_ids.push(100787357);
     (function() {
@@ -26,4 +15,15 @@ jQuery(document).ready(function($) {
 
     ga('create', 'UA-29060650-1', 'auto');
     ga('send', 'pageview');
+
+jQuery(document).ready(function($) {
+    var div = $('#scrollerHead');
+    var start = $(div).offset().top;
+    $(div).css('z-index','1030');
+
+    $.event.add(window, "scroll", function() {
+        var p = $(window).scrollTop();
+        $(div).css('position',((p)>start) ? 'fixed' : 'static');
+        $(div).css('top',((p)>start) ? '0px' : '');
+    });
 });
