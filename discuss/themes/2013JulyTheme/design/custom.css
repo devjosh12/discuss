@@ -2309,3 +2309,18 @@ body div.AnswerTabs li.Active a {
 }
 /* voting end */
 
+/*reactions*/
+.ReactSprite {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  line-height: 18px;
+  vertical-align: bottom;
+  background-image: url('images/action-sprites-bordered.png');
+  background-position: 16px 16px;
+  background-repeat: no-repeat;
+}
+/* voting end */
+
+
