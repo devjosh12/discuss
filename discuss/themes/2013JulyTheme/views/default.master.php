@@ -12,8 +12,6 @@
             <a href="http://forumias.com/portal/todays-newspaper/">Daily Newspaper</a>
             |
             <a href="http://forumias.com/portal/say-hello-to-forumias-issue-debates/">Issue Debates</a>
-            |
-            <a href="http://forumias.com/portal/moderator-elections-2015/" target="_blank">Moderators Poll 2015</a>  
         </div>
         <div id="Head">
             <div class="wrapper">
