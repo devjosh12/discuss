@@ -80,7 +80,7 @@ body.Post a.Close {
 }
 .Banner ul li a {
 	font-weight: bold;
-	padding: 5px 6px;
+	padding: 3px 6px;
 	font-size: 11px;
 	color: #fff;
 	display: block;
@@ -414,49 +414,3 @@ td.BigCount {
 .CommentForm .FormWrapper {
     padding: 10px;
 }
-
-.SocialIcon-Google .Icon {
-   	background-position: 0 -72px;
-}
-.SocialIcon-Google.HasText .Icon {
-background-position: 0 -96px;
-}
-.SocialIcon-Google,
-.SocialIcon-Google.HasText .Icon {
-    background-color: #da5442;
-}
-
-.SocialIcon-Google.HasText .Text{
-        display:none;
-}
-
-.SocialIcon-Google, .Banner ul li.Connect a.SocialIcon-Google:hover {
-    background-color: #da5442;
-    background-image: url("images/google+.png");
-    background-position: -5px -5px;
-    background-repeat: no-repeat;
-    background-size: 154px auto;
-    border-radius: 3px;
-    display: inline-block;
-    height: 25px;
-    margin: 0;
-    padding: 0;
-    width: 154px;
-}
-
-.Banner #FacebookAuth > img {
-    width: 25px;
-}
-
-.Banner .SocialIcon-Google, .Banner ul li.Connect a.SocialIcon-Google, .Banner ul li.Connect a.SocialIcon-Google:hover {
-    height: 25px;
-    margin: 3px 2px;
-    padding: 0;
-    width: 25px;
-    display: block;
-}
-
-.Banner .SocialIcon-Google span{
-	border:none;
-}
-
