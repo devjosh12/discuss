@@ -460,3 +460,17 @@ background-position: 0 -96px;
 	border:none;
 }
 
+
+/* mobile no hover attachment */
+
+.Buttons .AttachFileWrapper .Attachment .FileHover {
+    display: block !important;
+    position: static!important;
+}
+
+.Buttons .AttachFileWrapper .Attachment .FilePreview {
+    display: none !important;
+}
+
+/* end mobile no hover attachment */
+
