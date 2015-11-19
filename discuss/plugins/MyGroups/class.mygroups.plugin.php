@@ -28,7 +28,9 @@ function myGroupsLoad($class){
     $match = array();
     if (preg_match('`^MyGroups(.*)`' , $class , $match)) {
         $file = strtolower(preg_replace('`Domain$`', '', $match[1]));
-        include_once(PATH_PLUGINS . DS . 'MyGroups' . DS . 'class.' . $file . '.php');
+        if (file_exists(PATH_PLUGINS . DS . 'MyGroups' . DS . 'class.' . $file . '.php')) {
+            include_once(PATH_PLUGINS . DS . 'MyGroups' . DS . 'class.' . $file . '.php');
+        }
     }
 }
 
