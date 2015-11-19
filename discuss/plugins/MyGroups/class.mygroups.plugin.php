@@ -40,7 +40,7 @@ spl_autoload_register('myGroupsLoad');
 // Initialise loader to be use by various libraries an architecture
 MyGroupsUtility::initLoad();
 
-MyGroupsUtility::registerLoadMap('`^MyGroups[A-Za-z]*Model$`','/','class.{$matches[0]}.php', false);
+MyGroupsUtility::registerLoadMap('`^MyGroups[A-Za-z]*Model$`','/','class.{$matches[0]}.php');
 
 //<<<< must be flush no indentation !!!!
 class MyGroups extends MyGroupsUIDomain {
