@@ -73,8 +73,9 @@
     width: 30%;
 }
 
-.GroupTabs{
+body .GroupTabs {
     margin: 10px 0 20px;
+    padding: 0;
 }
 
 .GroupTabs .Count{
