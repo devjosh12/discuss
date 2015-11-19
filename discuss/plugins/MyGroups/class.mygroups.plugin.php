@@ -40,6 +40,8 @@ spl_autoload_register('myGroupsLoad');
 // Initialise loader to be use by various libraries an architecture
 MyGroupsUtility::initLoad();
 
+MarketPlaceUtility::registerLoadMap('`^MyGroups[A-Za-z]+Model$`','','class.{$Matches[0]}.php', false);
+
 //<<<< must be flush no indentation !!!!
 class MyGroups extends MyGroupsUIDomain {
     
