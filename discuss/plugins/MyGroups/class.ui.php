@@ -181,7 +181,9 @@ class MyGroupsUI {
             $this->myGroupsModel = new MyGroupsModel();
             $groups = $this->myGroupsModel->getGroupsByUserID(Gdn::session()->User->UserID);
             
-            $this->plgn->api()->setPermissions(array('Vanilla.Discussions.View'), $this->myGroupsModel->rootCategory()->CategoryID);
+            if ($this->myGroupsModel->rootCategory()) {
+                $this->plgn->api()->setPermissions(array('Vanilla.Discussions.View'), $this->myGroupsModel->rootCategory()->CategoryID);
+            }
             
             if ($groups) {
                 
